@@ -1,5 +1,5 @@
 
-# Nordea
+# Nord
 
 Prepare TestNG automated tests in a suite named: FAR.xml
 Manage this project via Maven but be able to run it from IntelliJ editor in a class view.
