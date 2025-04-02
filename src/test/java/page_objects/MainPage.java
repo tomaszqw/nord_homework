@@ -9,6 +9,7 @@ import utils.WaitUtil;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class MainPage extends BasePage {
@@ -34,7 +35,11 @@ public class MainPage extends BasePage {
                 .findElements(By.xpath(LIST_ELEMENTS_XPATH))
                 .stream()
                 .map(e -> e.getDomAttribute(DETAILS_ATTRIBUTE_NAME))
-                .filter(e -> checkIfStringContainsOnlyLetters(e))
+                .filter(Objects::nonNull)
+//                .filter(e -> e.codePoints().allMatch(Character::isLetter)
+//                        || e.codePoints().allMatch(Character::isDigit)
+//                        || e.codePoints().allMatch(Character::isDefined))
+//                .filter(e -> !e.contains("a"))
                 .collect(Collectors.toList());
     }
 
@@ -45,11 +50,6 @@ public class MainPage extends BasePage {
             String attributeValue = element.getDomAttribute(DETAILS_ATTRIBUTE_NAME);
             return attributeValue == null || !attributeValue.contains("...");
         });
-    }
-
-    public boolean checkIfStringContainsOnlyLetters(String name) {
-
-        return true;
     }
 
 }

@@ -54,6 +54,6 @@ public class UiTest {
 
         }
 
-        duplicatesList.forEach((s, integer) -> System.out.println("Key: " + s + " Value: " + integer));
+        duplicatesList.forEach((s, i) -> System.out.println("Key: " + s + " Value: " + i));
     }
 }
